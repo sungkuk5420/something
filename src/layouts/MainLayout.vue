@@ -80,6 +80,11 @@ export default {
       margin-right: 10px;
     }
     .btn1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333333;
+      text-decoration: none;
       margin-top: 15px;
       background-color: #f7d1c5;
       border: 0.5px solid #817e7f;
