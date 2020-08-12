@@ -1,5 +1,6 @@
-# something
-dating app
+# Quasar App (quasar-boilerplate)
+
+A Quasar Framework app
 
 ## Install the dependencies
 ```bash
