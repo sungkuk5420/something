@@ -26,3 +26,26 @@ $ yarn global add @quasar/cli
 # or
 $ npm install -g @quasar/cli
 ```
+
+
+
+### action call
+
+```
+  const thisObj = this;
+  const successCb = result => {
+    thisObj.sendSuccessMessage("완료");
+    thisObj.loading = false;
+  };
+  const errorCb = () => {
+    thisObj.sendErrorMessage("실패");
+    thisObj.loading = false;
+  };
+  thisObj.loading = true;
+  thisObj.$store.dispatch(T.ACTION_NAME, {
+    data: {
+    },
+    successCb,
+    errorCb
+  });
+```

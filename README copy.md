@@ -1,4 +1,4 @@
-# Quasar App (quasar-boilerplate)
+# something (quasar-boilerplate)
 
 A Quasar Framework app
 

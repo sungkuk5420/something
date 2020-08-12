@@ -2,7 +2,7 @@
   "name": "quasar-boilerplate",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "productName": "something",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
   "author": "sungkuk5420 <sungkuk5420@gmail.com>",

@@ -1,5 +1,8 @@
-export default function() {
+export default function () {
   return {
-    state: ""
+    sexModalVisiable: false,
+    mainTutorialUserList: [
+
+    ]
   };
 }

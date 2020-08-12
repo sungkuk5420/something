@@ -3,24 +3,41 @@
     <q-header height-hint="98">
       <img src="statics/icons/logo_something_main.png" alt />
     </q-header>
-
+    <Modal v-show="sexModalVisiable" />
+    <img
+      src="statics/icons/tutorial.png"
+      class="tutorial"
+      alt
+      v-show="tutorialVisiable"
+      :style="!tutorialVisiable?'opacity:0; z-index: 0;':''"
+      @click="hideTutorial"
+    />
     <q-page-container>
       <router-view />
     </q-page-container>
 
     <q-footer reveal class="text-white">
       <q-tabs align="left">
-        <q-route-tab to="/page1">
-          <img src="statics/icons/btn_inu_off.png" class="off active" alt />
-          <img src="statics/icons/btn_inu_on.png" class="on" alt />
+        <q-route-tab to="/mainTutorial">
+          <img
+            src="statics/icons/btn_inu_off.png"
+            class="off"
+            v-show="activeTabNumber!=1"
+            @click="activeTabNumber=1"
+          />
+          <img src="statics/icons/btn_inu_on.png" class="on" v-show="activeTabNumber==1" />
         </q-route-tab>
-        <q-route-tab to="/page2">
-          <img src="statics/icons/btn_help_off.png" class="off active" alt />
-          <img src="statics/icons/btn_help_on.png" class="on" alt />
+        <q-route-tab to="#">
+          <img src="statics/icons/btn_help_off.png" class="off active" alt @click="showTutorial" />
         </q-route-tab>
-        <q-route-tab to="/page3">
-          <img src="statics/icons/btn_log_off.png" class="off" alt />
-          <img src="statics/icons/btn_log_on.png" class="on active" alt />
+        <q-route-tab to="/">
+          <img
+            src="statics/icons/btn_log_off.png"
+            class="off"
+            v-show="activeTabNumber!=3"
+            @click="activeTabNumber=3"
+          />
+          <img src="statics/icons/btn_log_on.png" class="on" v-show="activeTabNumber==3" />
         </q-route-tab>
       </q-tabs>
     </q-footer>
@@ -28,9 +45,33 @@
 </template>
 
 <script>
+import Modal from "../components/Modal";
+import { mapGetters } from "vuex";
+
 export default {
+  components: {
+    Modal,
+  },
+  computed: {
+    ...mapGetters({
+      sexModalVisiable: "getSexModalVisiable",
+    }),
+  },
   data() {
-    return {};
+    return {
+      activeTabNumber: 3,
+      tutorialVisiable: false,
+    };
+  },
+  methods: {
+    showTutorial() {
+      this.tutorialVisiable = true;
+    },
+    hideTutorial() {
+      this.tutorialVisiable = false;
+      this.activeTabNumber = 1;
+      this.$router.push("/mainTutorial");
+    },
   },
 };
 </script>
@@ -44,6 +85,13 @@ export default {
     width: 150px;
     margin-top: 8px;
   }
+}
+.tutorial {
+  width: 100%;
+  height: calc(100% - 58px);
+  z-index: 10000;
+  position: fixed;
+  bottom: 0;
 }
 .q-page {
   background-color: #eff0f0;
@@ -110,10 +158,5 @@ export default {
 .q-footer img {
   width: 60px;
   cursor: pointer;
-  display: none;
-}
-
-.q-footer img.active {
-  display: block;
 }
 </style>

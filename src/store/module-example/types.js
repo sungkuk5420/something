@@ -1,3 +1,3 @@
 export const T = {
-  TYPE: "TYPE"
+  SEX_MODAL_VISIABLE: "SEX_MODAL_VISIABLE"
 };

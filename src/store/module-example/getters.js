@@ -1,5 +1,8 @@
 export const getters = {
-    getter(state) {
-        return state;
+    getSexModalVisiable(state) {
+        return state.sexModalVisiable;
+    },
+    getMainTutorialUserList(state) {
+        return state.mainTutorialUserList;
     }
 };
