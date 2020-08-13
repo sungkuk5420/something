@@ -101,17 +101,30 @@ export default {
     }),
   },
   watch: {
-    loginUser(data) {
-      if (data) {
-        this.activeTabNumber = 4;
-      }
-    },
+    loginUser(data) {},
   },
   data() {
     return {
       activeTabNumber: 3,
       tutorialVisiable: false,
     };
+  },
+  updated() {
+    const pathName = this.$route.fullPath;
+    switch (pathName) {
+      case "/mainTutorial":
+        this.activeTabNumber = 1;
+        break;
+      case "/":
+        this.activeTabNumber = 3;
+        break;
+      case "/main":
+        this.activeTabNumber = 4;
+        break;
+      case "/chats":
+        this.activeTabNumber = 5;
+        break;
+    }
   },
   mounted() {
     const thisObj = this;

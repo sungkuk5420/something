@@ -4,6 +4,6 @@ export default function () {
     mainTutorialUserList: [
 
     ],
-    loginUser: null
+    loginUser: null,
   };
 }

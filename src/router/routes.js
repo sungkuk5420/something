@@ -18,6 +18,11 @@ const routes = [
     path: "/main",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Main.vue") }]
+  },
+  {
+    path: "/Chats",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Chats.vue") }]
   }
 ];
 
