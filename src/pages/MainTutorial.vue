@@ -1,5 +1,5 @@
 <template>
-  <q-page class="main-page">
+  <q-page class="main-tutorial-page">
     <div class="main">
       <Card v-for="(user,index) in mainTutorialUserList" :user="user" :key="index" />
     </div>
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-.q-page.main-page {
+.q-page.main-tutorial-page {
   .main {
     padding-top: 20px;
     display: flex;

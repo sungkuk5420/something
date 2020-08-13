@@ -1,5 +1,5 @@
 <template>
-  <q-page class="main-page">
+  <q-page class="chats-page">
     <div class="main">
       <Chat v-for="(user,index) in mainTutorialUserList" :user="user" :key="index" />
     </div>
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
-.q-page.main-page {
+.q-page.chats-page {
   .main {
     padding-top: 20px;
     display: flex;
