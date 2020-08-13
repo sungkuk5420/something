@@ -4,5 +4,8 @@ export const getters = {
     },
     getMainTutorialUserList(state) {
         return state.mainTutorialUserList;
+    },
+    getLoginUser(state) {
+        return state.loginUser;
     }
 };

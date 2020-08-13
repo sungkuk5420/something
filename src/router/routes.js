@@ -13,6 +13,11 @@ const routes = [
     path: "/mainTutorial",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/MainTutorial.vue") }]
+  },
+  {
+    path: "/main",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Main.vue") }]
   }
 ];
 

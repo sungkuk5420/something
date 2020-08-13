@@ -16,7 +16,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer reveal class="text-white">
+    <q-footer reveal class="text-white" v-if="!loginUser">
       <q-tabs align="left">
         <q-route-tab to="/mainTutorial">
           <img
@@ -41,6 +41,46 @@
         </q-route-tab>
       </q-tabs>
     </q-footer>
+    <q-footer reveal class="text-white" v-if="loginUser">
+      <q-tabs align="left">
+        <q-route-tab to="/mainTutorial">
+          <img
+            src="statics/icons/btn_inu_off.png"
+            class="off"
+            v-show="activeTabNumber!=4"
+            @click="activeTabNumber=4"
+          />
+          <img src="statics/icons/btn_inu_on.png" class="on" v-show="activeTabNumber==4" />
+        </q-route-tab>
+        <q-route-tab to="/chats">
+          <img
+            src="statics/icons/btn_chat_off.png"
+            class="off"
+            v-show="activeTabNumber!=5"
+            @click="activeTabNumber=5"
+          />
+          <img src="statics/icons/btn_chat_on.png" class="on" v-show="activeTabNumber==5" />
+        </q-route-tab>
+        <q-route-tab to="/friends">
+          <img
+            src="statics/icons/btn_cont_off.png"
+            class="off"
+            v-show="activeTabNumber!=6"
+            @click="activeTabNumber=6"
+          />
+          <img src="statics/icons/btn_cont_on.png" class="on" v-show="activeTabNumber==6" />
+        </q-route-tab>
+        <q-route-tab to="/setting">
+          <img
+            src="statics/icons/btn_set_off.png"
+            class="off"
+            v-show="activeTabNumber!=7"
+            @click="activeTabNumber=7"
+          />
+          <img src="statics/icons/btn_set_on.png" class="on" v-show="activeTabNumber==7" />
+        </q-route-tab>
+      </q-tabs>
+    </q-footer>
   </q-layout>
 </template>
 
@@ -57,7 +97,15 @@ export default {
   computed: {
     ...mapGetters({
       sexModalVisiable: "getSexModalVisiable",
+      loginUser: "getLoginUser",
     }),
+  },
+  watch: {
+    loginUser(data) {
+      if (data) {
+        this.activeTabNumber = 4;
+      }
+    },
   },
   data() {
     return {
