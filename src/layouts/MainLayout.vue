@@ -128,7 +128,7 @@ export default {
         this.activeTabNumber = 6;
         break;
       case "/setting":
-        this.activeTabNumber = 6;
+        this.activeTabNumber = 7;
         break;
     }
   },

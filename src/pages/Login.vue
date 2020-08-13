@@ -16,6 +16,7 @@
 <script>
 import { Notify } from "quasar";
 import firebase from "firebase";
+import { mapGetters } from "vuex";
 export default {
   name: "PageIndex",
   data() {
@@ -29,6 +30,14 @@ export default {
     if (emailStringIntoPath) {
       this.email = emailStringIntoPath.replace("%40", "@");
     }
+    if (this.loginUser) {
+      this.$router.push(`/main`);
+    }
+  },
+  computed: {
+    ...mapGetters({
+      loginUser: "getLoginUser",
+    }),
   },
   methods: {
     login() {

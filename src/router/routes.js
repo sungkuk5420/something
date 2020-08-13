@@ -28,6 +28,11 @@ const routes = [
     path: "/Friends",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Friends.vue") }]
+  },
+  {
+    path: "/Setting",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Setting.vue") }]
   }
 ];
 
