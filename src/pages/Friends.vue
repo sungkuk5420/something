@@ -1,26 +1,39 @@
 <template>
   <q-page class="main-page">
     <div class="main">
-      <Chat v-for="(user,index) in mainTutorialUserList" :user="user" :key="index" />
+      <Friend v-for="(user,index) in mainTutorialUserList" :user="user" :key="index" />
     </div>
   </q-page>
 </template>
 
 <script>
-import Chat from "../components/Chat";
+import Friend from "../components/Friend";
 import { T } from "../store/module-example/types";
 import { mapGetters } from "vuex";
 export default {
   name: "PageIndex",
   components: {
-    Chat,
+    Friend,
   },
   computed: {
     ...mapGetters({
       mainTutorialUserList: "getMainTutorialUserList",
     }),
   },
-  mounted() {},
+  mounted() {
+    const thisObj = this;
+    const successCb = (result) => {};
+    const errorCb = () => {};
+    thisObj.loading = true;
+    thisObj.$store.dispatch(T.SEX_MODAL_VISIABLE, {
+      data: {
+        modalVisiable: true,
+        sex: "",
+      },
+      successCb,
+      errorCb,
+    });
+  },
 };
 </script>
 

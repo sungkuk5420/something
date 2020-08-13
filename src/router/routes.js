@@ -23,6 +23,11 @@ const routes = [
     path: "/Chats",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Chats.vue") }]
+  },
+  {
+    path: "/Friends",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Friends.vue") }]
   }
 ];
 

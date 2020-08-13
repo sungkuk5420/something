@@ -1,7 +1,13 @@
 {
   "prettier.disableLanguages": [],
-  "vetur.experimental.templateInterpolationService": true,
-  "eslint.validate": ["javascript", { "autoFix": true, "language": "vue" }],
+  "vetur.experimental.templateInterpolationService": false,
+  "eslint.validate": [
+    "javascript",
+    {
+      "autoFix": true,
+      "language": "vue"
+    }
+  ],
   "editor.formatOnSave": true,
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,

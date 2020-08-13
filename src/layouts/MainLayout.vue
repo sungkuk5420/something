@@ -124,6 +124,12 @@ export default {
       case "/chats":
         this.activeTabNumber = 5;
         break;
+      case "/friends":
+        this.activeTabNumber = 6;
+        break;
+      case "/setting":
+        this.activeTabNumber = 6;
+        break;
     }
   },
   mounted() {
