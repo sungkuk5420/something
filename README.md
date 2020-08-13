@@ -53,6 +53,7 @@ $ npm install -g @quasar/cli
 ### firebase
 ```
 개발용 로컬 웹 서버 실행
+npm install --save firebase
 npm install -g firebase-tools
 
 firebase 호스팅을 사용하여 웹 앱 호스팅
