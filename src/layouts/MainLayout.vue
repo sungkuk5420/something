@@ -81,6 +81,8 @@ export default {
   display: flex;
   background-color: #f7d1c5;
   justify-content: center;
+  flex: 0;
+  height: 58px;
   img {
     width: 150px;
     margin-top: 8px;
@@ -107,10 +109,9 @@ export default {
       border: 0.5px solid #817e7f;
       height: 50px;
       padding: 0 10px;
-      border-top-width: 0;
     }
-    .inputbox:first-child {
-      border-top-width: 0.5px;
+    .inputbox + .inputbox {
+      margin-top: 10px;
     }
     .inputbox::placeholder {
       color: #000000;
@@ -127,13 +128,14 @@ export default {
       height: 20px;
       margin-right: 10px;
     }
+
     .btn1 {
       display: flex;
       align-items: center;
       justify-content: center;
       color: #333333;
       text-decoration: none;
-      margin-top: 15px;
+      margin-top: 10px;
       background-color: #f7d1c5;
       border: 0.5px solid #817e7f;
       font-size: 15px;

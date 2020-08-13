@@ -6,9 +6,9 @@
       <label class="checkbox-row">
         <input type="checkbox" class="checkbox" value="autologin" /> 자동로그인
       </label>
-      <input type="button" class="btn1" value="로그인" />
+      <router-link to="join" class="btn1">로그인</router-link>
       <router-link to="join" class="btn1">회원가입</router-link>
-      <input type="button" class="btn2" value="비밀번호 찾기" />
+      <router-link to="join" class="btn1">비밀번호 찾기</router-link>
     </div>
   </q-page>
 </template>
