@@ -86,5 +86,9 @@ export const mutations = {
       state.mainTutorialUserList = [];
     }
     console.log(state.mainTutorialUserList)
+  },
+  [T.SET_LOGIN_USER](state, loginUser) {
+    console.log(loginUser)
+    state.loginUser = loginUser;
   }
 };

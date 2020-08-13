@@ -48,6 +48,7 @@
 import firebase from "firebase";
 import Modal from "../components/Modal";
 import { mapGetters } from "vuex";
+import { T } from "../store/module-example/types";
 
 export default {
   components: {
@@ -65,18 +66,40 @@ export default {
     };
   },
   mounted() {
+    const thisObj = this;
     firebase.auth().onAuthStateChanged(function (user) {
       console.log("onAuthStateChanged");
       console.log(user);
       if (user) {
         // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
+
+        const loginUser = {
+          displayName: user.displayName,
+          email: user.email,
+          emailVerified: user.emailVerified,
+          photoURL: user.photoURL,
+          isAnonymous: user.isAnonymous,
+          uid: user.uid,
+          providerData: user.providerData,
+        };
+
+        const successCb = (result) => {
+          thisObj.sendSuccessMessage("완료");
+          thisObj.loading = false;
+        };
+        const errorCb = () => {
+          thisObj.sendErrorMessage("실패");
+          thisObj.loading = false;
+        };
+        thisObj.loading = true;
+        thisObj.$store.dispatch(T.SET_LOGIN_USER, {
+          data: {
+            loginUser,
+          },
+          successCb,
+          errorCb,
+        });
+
         // ...
       } else {
         // User is signed out.

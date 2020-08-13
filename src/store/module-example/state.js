@@ -3,6 +3,7 @@ export default function () {
     sexModalVisiable: false,
     mainTutorialUserList: [
 
-    ]
+    ],
+    loginUser: null
   };
 }

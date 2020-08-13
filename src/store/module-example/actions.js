@@ -24,5 +24,10 @@ export const actions = {
     console.log(data);
     successCb()
     commit(T.SEX_MODAL_VISIABLE, data);
-  }
+  },
+  [T.SET_LOGIN_USER]({ commit }, { data, successCb, errorCb }) {
+    console.log(`store SET_LOGIN_USER [T.SET_LOGIN_USER] data`);
+    console.log(data);
+    commit(T.SET_LOGIN_USER, data.loginUser);
+  },
 };
