@@ -1,10 +1,22 @@
 <template>
   <q-page class="join-page">
     <div class="main">
-      <input type="text" class="inputbox" placeholder="이름" v-model="name" />
-      <input type="text" class="inputbox" placeholder="이메일" v-model="email" />
-      <input type="password" class="inputbox" placeholder="비밀번호" v-model="password" />
-      <input type="password" class="inputbox" placeholder="비밀번호 확인" v-model="password2" />
+      <input type="text" class="inputbox" placeholder="이름" v-model="name" v-on:keyup.enter="join" />
+      <input type="text" class="inputbox" placeholder="이메일" v-model="email" v-on:keyup.enter="join" />
+      <input
+        type="password"
+        class="inputbox"
+        placeholder="비밀번호"
+        v-model="password"
+        v-on:keyup.enter="join"
+      />
+      <input
+        type="password"
+        class="inputbox"
+        placeholder="비밀번호 확인"
+        v-model="password2"
+        v-on:keyup.enter="join"
+      />
       <div class="btn1" @click="join">회원가입</div>
     </div>
   </q-page>

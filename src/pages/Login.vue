@@ -1,8 +1,20 @@
 <template>
   <q-page class="login-page">
     <div class="main">
-      <input type="text" class="inputbox" placeholder="이메일" v-model="email" />
-      <input type="password" class="inputbox" placeholder="비밀번호" v-model="password" />
+      <input
+        type="text"
+        class="inputbox"
+        placeholder="이메일"
+        v-model="email"
+        v-on:keyup.enter="login"
+      />
+      <input
+        type="password"
+        class="inputbox"
+        placeholder="비밀번호"
+        v-model="password"
+        v-on:keyup.enter="login"
+      />
       <label class="checkbox-row">
         <input type="checkbox" class="checkbox" value="autologin" /> 자동로그인
       </label>
