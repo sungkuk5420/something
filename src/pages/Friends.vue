@@ -22,16 +22,12 @@ export default {
   },
   mounted() {
     const thisObj = this;
-    const successCb = (result) => {};
-    const errorCb = () => {};
     thisObj.loading = true;
     thisObj.$store.dispatch(T.SEX_MODAL_VISIABLE, {
       data: {
         modalVisiable: true,
         sex: "",
       },
-      successCb,
-      errorCb,
     });
   },
 };

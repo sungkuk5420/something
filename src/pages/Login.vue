@@ -17,6 +17,7 @@
 import { Notify } from "quasar";
 import firebase from "firebase";
 import { mapGetters } from "vuex";
+import { T } from "../store/module-example/types";
 export default {
   name: "PageIndex",
   data() {
@@ -50,7 +51,15 @@ export default {
         .then((res) => {
           console.log(res);
           if (res.operationType == "signIn") {
-            thisObj.$router.push(`/main`);
+            thisObj.$store
+              .dispatch(T.SET_LOGIN_USER, {
+                data: {
+                  userId: res.user.uid,
+                },
+              })
+              .then(() => {
+                thisObj.$router.push(`/main`);
+              });
           }
         })
         .catch(function (error) {

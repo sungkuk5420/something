@@ -36,21 +36,19 @@ export default {
   methods: {
     closeModal(sex) {
       const thisObj = this;
-      const successCb = (result) => {
-        thisObj.sex = "";
-      };
-      const errorCb = () => {};
       thisObj.loading = true;
       thisObj.sex = sex;
       setTimeout(() => {
-        thisObj.$store.dispatch(T.SEX_MODAL_VISIABLE, {
-          data: {
-            modalVisiable: false,
-            sex,
-          },
-          successCb,
-          errorCb,
-        });
+        thisObj.$store
+          .dispatch(T.SEX_MODAL_VISIABLE, {
+            data: {
+              modalVisiable: false,
+              sex,
+            },
+          })
+          .then(() => {
+            thisObj.sex = "";
+          });
       }, 1000);
     },
   },

@@ -139,38 +139,17 @@ export default {
     const thisObj = this;
     firebase.auth().onAuthStateChanged(function (user) {
       console.log("onAuthStateChanged");
-      console.log(user);
       if (user) {
-        // User is signed in.
+        console.log(user.uid);
 
-        const loginUser = {
-          displayName: user.displayName,
-          email: user.email,
-          emailVerified: user.emailVerified,
-          photoURL: user.photoURL,
-          isAnonymous: user.isAnonymous,
-          uid: user.uid,
-          providerData: user.providerData,
-        };
-
-        const successCb = (result) => {
-          thisObj.sendSuccessMessage("완료");
-          thisObj.loading = false;
-        };
-        const errorCb = () => {
-          thisObj.sendErrorMessage("실패");
-          thisObj.loading = false;
-        };
-        thisObj.loading = true;
-        thisObj.$store.dispatch(T.SET_LOGIN_USER, {
-          data: {
-            loginUser,
-          },
-          successCb,
-          errorCb,
-        });
-
-        // ...
+        // // User is signed in.
+        // thisObj.$store
+        //   .dispatch(T.SET_LOGIN_USER, {
+        //     data: {
+        //       userId: user.uid,
+        //     },
+        //   })
+        //   .then(() => {});
       } else {
         // User is signed out.
         // ...
