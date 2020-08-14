@@ -20,19 +20,24 @@ const routes = [
     children: [{ path: "", component: () => import("pages/Main.vue") }]
   },
   {
-    path: "/Chats",
+    path: "/chats",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Chats.vue") }]
   },
   {
-    path: "/Friends",
+    path: "/friends",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Friends.vue") }]
   },
   {
-    path: "/Setting",
+    path: "/setting",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Setting.vue") }]
+  },
+  {
+    path: "/profile",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Profile.vue") }]
   }
 ];
 

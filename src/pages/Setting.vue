@@ -1,10 +1,12 @@
 <template>
   <q-page class="setting-page">
     <div class="main">
-      <div class="row menu">
-        <img src="statics/icons/profile_indiv_mini.png" class="icon" alt srcset />
-        <span>내 정보</span>
-      </div>
+      <router-link to="profile">
+        <div class="row menu">
+          <img src="statics/icons/profile_indiv_mini.png" class="icon" alt srcset />
+          <span>내 정보</span>
+        </div>
+      </router-link>
       <div class="row menu">
         <img src="statics/icons/btn_pwchange.png" class="icon" alt srcset />
         <span>프로필 변경</span>

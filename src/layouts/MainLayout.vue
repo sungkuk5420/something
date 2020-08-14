@@ -130,6 +130,9 @@ export default {
       case "/setting":
         this.activeTabNumber = 7;
         break;
+      case "/profile":
+        this.activeTabNumber = 7;
+        break;
     }
   },
   mounted() {
