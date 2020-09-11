@@ -3,9 +3,7 @@ import VueRouter from "vue-router";
 
 import routes from "./routes";
 
-
 Vue.use(VueRouter);
-
 
 import firebase from 'firebase'
 var firebaseConfig = {

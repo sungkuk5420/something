@@ -89,8 +89,10 @@ import firebase from "firebase";
 import Modal from "../components/Modal";
 import { mapGetters } from "vuex";
 import { T } from "../store/module-example/types";
+import mixin from "../pages/mixin";
 
 export default {
+  mixins: [mixin],
   components: {
     Modal,
   },
@@ -141,18 +143,25 @@ export default {
       console.log("onAuthStateChanged");
       if (user) {
         console.log(user.uid);
+        console.log(thisObj.loginUser);
 
         // // User is signed in.
-        // thisObj.$store
-        //   .dispatch(T.SET_LOGIN_USER, {
-        //     data: {
-        //       userId: user.uid,
-        //     },
-        //   })
-        //   .then(() => {});
+        if (!thisObj.loginUser) {
+          thisObj.$store
+            .dispatch(T.SET_LOGIN_USER, {
+              data: {
+                userId: user.uid,
+              },
+            })
+            .then(() => {});
+        }
+        const pathName = thisObj.$route.fullPath;
+        if (pathName == "/") {
+          thisObj.$router.push(`/main`);
+        }
       } else {
         // User is signed out.
-        // ...
+        thisObj.$router.push("/");
       }
     });
   },

@@ -47,11 +47,7 @@ export default {
       this.$router.push(`/main`);
     }
   },
-  computed: {
-    ...mapGetters({
-      loginUser: "getLoginUser",
-    }),
-  },
+  computed: {},
   methods: {
     login() {
       const email = this.email;

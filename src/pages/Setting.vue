@@ -23,7 +23,9 @@
 import firebase from "firebase";
 import { T } from "../store/module-example/types";
 import { mapGetters } from "vuex";
+import mixin from "./mixin";
 export default {
+  mixins: [mixin],
   name: "Setting",
   components: {},
   mounted() {},
@@ -42,6 +44,7 @@ export default {
                 loginUser: null,
               },
             });
+            this.removeLoginSesstion();
             thisObj.$router.push(`/`);
           },
           (error) => {
