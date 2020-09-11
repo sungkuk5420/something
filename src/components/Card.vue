@@ -126,15 +126,16 @@ export default {
   transform: scale(1);
   transform: translate(-25px, -20px);
   svg {
-    transform: translate(-25px, -20px);
     width: 50px;
     height: 50px;
-    transform: scale(1);
   }
 }
 .q-slider--active .q-slider__focus-ring,
 .q-slider--active.q-slider--label .q-slider__thumb {
   transform: scale(1) !important;
+}
+.q-slider__track-container {
+  background: none;
 }
 .q-slider__track-container.q-slider__track-container--h.absolute {
   color: #f7e4de !important;
