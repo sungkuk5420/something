@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" ref="card">
     <div class="profile">
       <div class="left">
         <img :src="user?user.avatar:''" alt />
@@ -32,6 +32,16 @@ export default {
       lazy: 5,
     };
   },
+  watch: {
+    lazy(value) {
+      if (value == 0) {
+        console.log("싫어요");
+      } else if (value == 10) {
+        console.log("좋아요");
+      }
+      this.$refs.card.classList.add("fadeOut");
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -41,6 +51,41 @@ export default {
   padding: 20px;
 
   margin-bottom: 15px;
+  &.fadeOut {
+    transition: 1s cubic-bezier(0.77, 0.5, 0.54, 0.91);
+    animation: fadeOut 0.8s cubic-bezier(0.84, 0, 0.62, 1.01);
+    opacity: 0;
+    margin-top: -200px;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      height: 0;
+    }
+
+    100% {
+      opacity: 1;
+      height: auto;
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes heightZero {
+    0% {
+      height: auto;
+    }
+
+    100% {
+      height: 0;
+    }
+  }
 }
 .profile {
   display: flex;
