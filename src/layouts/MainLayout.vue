@@ -195,7 +195,7 @@ export default {
     flex: 1;
     overflow: auto;
     background-color: #eff0f0;
-    padding: 0 30px;
+    padding: 0 20px;
 
     .inputbox {
       background-color: #ffffff;

@@ -2,23 +2,37 @@
   <div class="card" ref="card">
     <div class="profile">
       <div class="left">
-        <img :src="user?user.avatar:''" alt />
-      </div>
-      <div class="right">
-        <div class="name">{{user?user.name:''}}</div>
-        <div class="spec">
-          <label for>나이 : {{user?user.age:''}}</label>
-          <label for>키 : {{user?user.height:''}}</label>
+        <img class="avatar" :src="users[0]?users[0].avatar:''" alt />
+        <div class="user-info">
+          <div class="spec">
+            <label for>나이 : {{users[0]?users[0].age:''}}</label>
+            <label for>키 : {{users[0]?users[0].height:''}}</label>
+          </div>
+          <div class="condition">안녕안녕안녕</div>
         </div>
-        <div class="condition">안녕안녕안녕</div>
+      </div>
+      <div class="center">vs</div>
+      <div class="right">
+        <img class="avatar" :src="users[1]?users[1].avatar:''" alt />
+        <div class="user-info">
+          <div class="spec">
+            <label for>나이 : {{users[1]?users[1].age:''}}</label>
+            <label for>키 : {{users[1]?users[1].height:''}}</label>
+          </div>
+          <div class="condition">안녕안녕안녕</div>
+        </div>
       </div>
     </div>
 
     <div class="slide">
       <q-slider :value="lazy" @change="val => { lazy = val }" :min="0" :max="10" :step="5" />
-      <div class="left">싫어요</div>
+      <div class="left">
+        <div class="name">{{users[0]?users[0].name:''}}</div>
+      </div>
       <div class="center"></div>
-      <div class="right">좋아요</div>
+      <div class="right">
+        <div class="name">{{users[1]?users[1].name:''}}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -26,7 +40,7 @@
 <script>
 export default {
   name: "Card",
-  props: ["user"],
+  props: ["users"],
   data() {
     return {
       lazy: 5,
@@ -39,7 +53,8 @@ export default {
       } else if (value == 10) {
         console.log("좋아요");
       }
-      this.$refs.card.classList.add("fadeOut");
+      const thisCard = this.$refs.card;
+      thisCard.classList.add("fadeOut");
     },
   },
 };
@@ -55,7 +70,7 @@ export default {
     transition: 1s cubic-bezier(0.77, 0.5, 0.54, 0.91);
     animation: fadeOut 0.8s cubic-bezier(0.84, 0, 0.62, 1.01);
     opacity: 0;
-    margin-top: -200px;
+    margin-top: -270px;
   }
   @keyframes fadeIn {
     0% {
@@ -89,37 +104,39 @@ export default {
 }
 .profile {
   display: flex;
-}
 
-.profile .right {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  padding-left: 30px;
-}
-.profile .right .name {
-  font-size: 18px;
-  color: #294a73;
-}
-
-.profile .right .spec {
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  color: #333333;
-}
-
-.profile .right .condition {
-  margin-top: 10px;
-  color: #333333;
-  font-size: 12px;
-}
-
-.profile .left img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  img.avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  .center {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #fcaf17;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    .spec {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+      color: #333333;
+    }
+    .condition {
+      margin-top: 10px;
+      color: #333333;
+      font-size: 12px;
+    }
+  }
 }
 
 .slide {
@@ -135,12 +152,18 @@ export default {
     width: 80%;
     z-index: 1;
   }
+  .name {
+    font-size: 16px;
+    color: #294a73;
+    line-height: 14px;
+  }
 }
 .slide .left {
   display: flex;
   flex: 1;
   padding: 7px 0;
   align-items: center;
+  z-index: 0;
 }
 .slide .center {
   display: flex;
@@ -154,6 +177,7 @@ export default {
   height: 60px;
   position: absolute;
   top: -16px;
+  z-index: 2;
 }
 .slide .right {
   display: flex;
@@ -161,6 +185,7 @@ export default {
   justify-content: flex-end;
   padding: 7px 0;
   align-items: center;
+  z-index: 0;
 }
 </style>
 
@@ -182,8 +207,11 @@ export default {
 .q-slider__track-container {
   background: none;
 }
+.q-slider__track.q-slider__track--h.absolute {
+  z-index: -1;
+}
 .q-slider__track-container.q-slider__track-container--h.absolute {
-  color: #f7e4de !important;
+  color: #ffffff00 !important;
 }
 .q-slider__thumb.absolute {
   background-image: url("../statics/icons/btn_slide.png");

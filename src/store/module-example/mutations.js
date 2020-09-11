@@ -6,7 +6,7 @@ export const mutations = {
     state.sexModalVisiable = data.modalVisiable;
     if (data.sex == 'man') {
       state.mainTutorialUserList = [
-        {
+        [{
           name: "여자 1",
           age: 22,
           height: 163,
@@ -17,8 +17,8 @@ export const mutations = {
           age: 22,
           height: 163,
           avatar: "statics/image/woman-2.jpg"
-        },
-        {
+        }],
+        [{
           name: "여자 3",
           age: 22,
           height: 163,
@@ -29,8 +29,8 @@ export const mutations = {
           age: 22,
           height: 163,
           avatar: "statics/image/woman-4.jpg"
-        },
-        {
+        }],
+        [{
           name: "여자 5",
           age: 22,
           height: 163,
@@ -41,11 +41,11 @@ export const mutations = {
           age: 22,
           height: 163,
           avatar: "statics/image/woman-6.jpg"
-        },
+        }],
       ];
     } else if (data.sex == 'woman') {
       state.mainTutorialUserList = [
-        {
+        [{
           name: "남자 1",
           age: 28,
           height: 178,
@@ -56,8 +56,8 @@ export const mutations = {
           age: 28,
           height: 178,
           avatar: "statics/image/man-2.jpg"
-        },
-        {
+        }],
+        [{
           name: "남자 3",
           age: 28,
           height: 178,
@@ -68,8 +68,8 @@ export const mutations = {
           age: 28,
           height: 178,
           avatar: "statics/image/man-4.jpg"
-        },
-        {
+        }],
+        [{
           name: "남자 5",
           age: 28,
           height: 178,
@@ -80,7 +80,7 @@ export const mutations = {
           age: 28,
           height: 178,
           avatar: "statics/image/man-6.jpg"
-        },
+        }],
       ];
     } else {
       state.mainTutorialUserList = [];
