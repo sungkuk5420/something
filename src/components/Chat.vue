@@ -6,10 +6,12 @@
     <div class="chatting-text">
       <div class="user-name">
         <b>{{user?user.name:''}}</b>
+        <div class="chatting-date">8월 12일 오후 10:10</div>
       </div>
-      <div class="user-conversation">땡큐</div>
+      <div class="user-conversation">
+        <div class>横幅を縮めると、余った文字が省略表示されます。</div>
+      </div>
     </div>
-    <div class="chatting-date">8월 12일 오후 10:10</div>
   </div>
 </template>
 
@@ -20,33 +22,49 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .chat {
   display: flex;
-  padding: 20px;
+  padding: 10px;
   border-bottom: 1px solid #d8d9d9;
   min-height: 100px;
 }
-.chat .user-img img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.chat .user-img {
+  width: 60px;
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
 }
 .chat .chatting-text {
   justify-content: flex-start;
   flex: 1;
-  padding-left: 30px;
+  padding-left: 20px;
+  overflow: hidden;
 }
 .chat .chatting-text .user-name {
-  color: #2a9898;
-  font-size: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  b {
+    color: #2a9898;
+    font-size: 16px;
+  }
 }
+
 .chat .chatting-text .user-conversation {
   padding-top: 10px;
-  font-size: 18px;
+  font-size: 14px;
+  display: flex;
+  & > div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
-.chat .chatting-text .chatting-date {
-  width: 140px;
+.chat .chatting-date {
+  width: 110px;
   font-size: 12px;
 }
 </style>
