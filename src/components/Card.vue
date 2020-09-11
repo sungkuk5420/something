@@ -1,5 +1,5 @@
 <template>
-  <div class="card" ref="card">
+  <div class="card" ref="card" :if="users">
     <div class="profile">
       <div class="left">
         <img class="avatar" :src="users[0]?users[0].avatar:''" alt />

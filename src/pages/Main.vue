@@ -1,7 +1,7 @@
 <template>
   <q-page class="main-page">
     <div class="main">
-      <Card v-for="(user,index) in mainTutorialUserList" :user="user" :key="index" />
+      <Card v-for="(users,index) in mainTutorialUserList" :users="users" :key="index" />
     </div>
   </q-page>
 </template>
