@@ -113,7 +113,6 @@ export default {
 <style lang="scss">
 .q-page.join-page {
   .main {
-    padding-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;

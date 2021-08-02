@@ -60,6 +60,7 @@ body{
 html,
 body,
 .q-layout,
+#q-app,
 .q-page-container,
 .q-page,
 .main{

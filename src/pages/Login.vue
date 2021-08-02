@@ -91,7 +91,6 @@ export default {
 <style lang="scss">
 .q-page.login-page {
   .main {
-    padding-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
