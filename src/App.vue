@@ -16,7 +16,6 @@ export default {
   border-bottom: 0;
 }
 .q-page-container{
-  min-height:812px;
   border: 1px solid #ddd;
 }
 .q-footer{
@@ -35,7 +34,6 @@ body{
 #q-app,
 .q-layout,
 .q-page-container{
-  overflow: auto;
   max-height: 812px;
 }
 .q-page-container{
@@ -57,13 +55,12 @@ body{
 {
   min-height: auto !important;
 }
+.q-page-container,
 html,
 body,
 .q-layout,
 #q-app,
-.q-page-container,
-.q-page,
-.main{
+.q-page{
   height: 100%;
 }
 .q-page{
@@ -76,7 +73,6 @@ body,
 .tutorial{
   max-width: 375px;
   max-height: 812px;
-  top: 0;
   bottom: 0;
   margin: auto;
 }

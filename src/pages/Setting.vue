@@ -3,7 +3,7 @@
     <div class="main">
       <router-link to="profile">
         <div class="row menu">
-          <img src="statics/icons/profile_indiv_mini.png" class="icon" alt srcset />
+          <img src="statics/image/man-5.jpg" class="icon avatar" alt srcset />
           <span>내 정보</span>
         </div>
       </router-link>
@@ -32,25 +32,30 @@ export default {
   methods: {
     logout() {
       const thisObj = this;
-      firebase
-        .auth()
-        .signOut()
-        .then(
-          (res) => {
-            console.log(res);
+      this.$store.dispatch(T.SET_LOGIN_USER, {
+        data: null,
+      });
+      this.removeLoginSesstion();
+      thisObj.$router.push(`/`);
+      // firebase
+      //   .auth()
+      //   .signOut()
+      //   .then(
+      //     (res) => {
+      //       console.log(res);
 
-            this.$store.dispatch(T.SET_LOGIN_USER, {
-              data: {
-                loginUser: null,
-              },
-            });
-            this.removeLoginSesstion();
-            thisObj.$router.push(`/`);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+      //       this.$store.dispatch(T.SET_LOGIN_USER, {
+      //         data: {
+      //           loginUser: null,
+      //         },
+      //       });
+      //       this.removeLoginSesstion();
+      //       thisObj.$router.push(`/`);
+      //     },
+      //     (error) => {
+      //       console.log(error);
+      //     }
+      //   );
     },
   },
 };
@@ -74,6 +79,9 @@ export default {
       }
       &:hover {
         cursor: pointer;
+      }
+      .avatar{
+        border-radius: 50%;
       }
       img {
         width: 60px;

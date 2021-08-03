@@ -25,8 +25,8 @@ export default {
     thisObj.loading = true;
     thisObj.$store.dispatch(T.SEX_MODAL_VISIABLE, {
       data: {
-        modalVisiable: true,
-        sex: "",
+        modalVisiable: false,
+        sex: "man",
       },
     });
   },

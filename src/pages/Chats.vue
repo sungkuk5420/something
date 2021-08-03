@@ -1,8 +1,6 @@
 <template>
   <q-page class="chats-page">
-    <div class="main">
-      <Chat v-for="(user,index) in mainTutorialUserList" :user="user" :key="index" />
-    </div>
+      <Chat v-for="(chat,index) in chatList" :chat="chat" :key="index" />
   </q-page>
 </template>
 
@@ -17,7 +15,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      mainTutorialUserList: "getMainTutorialUserList",
+      chatList: "getChatList",
     }),
   },
   mounted() {},

@@ -20,7 +20,7 @@
       </label>
       <div class="btn1" @click="login">로그인</div>
       <router-link to="join" class="btn1">회원가입</router-link>
-      <router-link to="join" class="btn1">비밀번호 찾기</router-link>
+      <router-link to="reset-password" class="btn1">비밀번호 찾기</router-link>
     </div>
   </q-page>
 </template>
@@ -39,10 +39,10 @@ export default {
     };
   },
   mounted() {
-    const emailStringIntoPath = this.$route.fullPath.split("email=")[1];
-    if (emailStringIntoPath) {
-      this.email = emailStringIntoPath.replace("%40", "@");
-    }
+    // const emailStringIntoPath = this.$route.fullPath.split("email=")[1];
+    // if (emailStringIntoPath) {
+    //   this.email = emailStringIntoPath.replace("%40", "@");
+    // }
     if (this.loginUser) {
       this.$router.push(`/main`);
     }
@@ -53,36 +53,43 @@ export default {
       const email = this.email;
       const password = this.password;
       const thisObj = this;
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then((res) => {
-          console.log(res);
-          if (res.operationType == "signIn") {
-            thisObj.$store
-              .dispatch(T.SET_LOGIN_USER, {
-                data: {
-                  userId: res.user.uid,
-                },
-              })
-              .then(() => {
-                thisObj.$router.push(`/main`);
-              });
-          }
-        })
-        .catch(function (error) {
-          Notify.create({
-            color: "white",
-            textColor: "black",
-            message: error.message,
-            position: "top",
-            timeout: 3000,
-          });
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // ...
-        });
+
+      thisObj.$store.dispatch(T.SET_LOGIN_USER, {
+          data: {
+              userId: "tester",
+      },
+      })
+      thisObj.$router.push(`/main`);
+      // firebase
+      //   .auth()
+      //   .signInWithEmailAndPassword(email, password)
+      //   .then((res) => {
+      //     console.log(res);
+      //     if (res.operationType == "signIn") {
+      //       thisObj.$store
+      //         .dispatch(T.SET_LOGIN_USER, {
+      //           data: {
+      //             userId: res.user.uid,
+      //           },
+      //         })
+      //         .then(() => {
+      //           thisObj.$router.push(`/main`);
+      //         });
+      //     }
+      //   })
+      //   .catch(function (error) {
+      //     Notify.create({
+      //       color: "white",
+      //       textColor: "black",
+      //       message: error.message,
+      //       position: "top",
+      //       timeout: 3000,
+      //     });
+      //     // Handle Errors here.
+      //     var errorCode = error.code;
+      //     var errorMessage = error.message;
+      //     // ...
+      //   });
     },
   },
 };
@@ -93,7 +100,8 @@ export default {
   .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 30px;
   }
 }
 </style>

@@ -1,15 +1,13 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header height-hint="98">
+    <q-header height-hint="98" :class="tutorialVisiable?'tutorial-showed':''">
       <img src="statics/icons/logo_something_main.png" alt />
     </q-header>
     <Modal v-show="sexModalVisiable" />
     <img
       src="statics/icons/tutorial.png"
-      class="tutorial"
       alt
-      v-show="tutorialVisiable"
-      :style="!tutorialVisiable?'opacity:0; z-index: 0;':''"
+      :class="tutorialVisiable?'tutorial is-show':'tutorial'"
       @click="hideTutorial"
     />
     <q-page-container>
@@ -103,7 +101,9 @@ export default {
     }),
   },
   watch: {
-    loginUser(data) {},
+    loginUser(data) {
+      console.log(data)
+    },
   },
   data() {
     return {
@@ -172,6 +172,13 @@ export default {
     hideTutorial() {
       this.tutorialVisiable = false;
       this.activeTabNumber = 1;
+
+      this.$store.dispatch(T.SEX_MODAL_VISIABLE, {
+        data: {
+          modalVisiable: false,
+          sex: "man",
+        },
+      });
       this.$router.push("/mainTutorial");
     },
   },
@@ -189,6 +196,9 @@ export default {
     width: 150px;
     margin-top: 8px;
   }
+  &.tutorial-showed{
+
+  }
 }
 .tutorial {
   width: 100%;
@@ -196,13 +206,18 @@ export default {
   z-index: 10000;
   position: fixed;
   bottom: 0;
+  opacity:0; 
+  z-index: 0;
+  &.is-show{
+    opacity:1; 
+    z-index: 10000;
+  }
 }
 .q-page {
   background-color: #eff0f0;
 
   & > .main {
     flex: 1;
-    overflow: auto;
     background-color: #eff0f0;
     padding: 0 20px;
 
@@ -256,11 +271,12 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
+  padding: 3px 0 ;
   background: white;
+  height: 76px;
 }
 .q-footer img {
-  width: 60px;
+  width: 52px;
   cursor: pointer;
 }
 </style>

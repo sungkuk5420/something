@@ -5,6 +5,9 @@ export const getters = {
     getMainTutorialUserList(state) {
         return state.mainTutorialUserList;
     },
+    getChatList(state) {
+        return state.chatList;
+    },
     getLoginUser(state) {
         return state.loginUser;
     }

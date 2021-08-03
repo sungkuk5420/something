@@ -25,8 +25,8 @@ export default {
     thisObj.loading = true;
     thisObj.$store.dispatch(T.SEX_MODAL_VISIABLE, {
       data: {
-        modalVisiable: true,
-        sex: "",
+        modalVisiable: false,
+        sex: "man",
       },
     });
   },
@@ -35,11 +35,13 @@ export default {
 
 <style lang="scss">
 .q-page.main-page {
+  overflow: auto;
+  padding-top: 20px;;
+  padding-bottom: 10px;
   .main {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  }
+  .q-slider__focus-ring{
+    display: none !important;
   }
 }
 </style>

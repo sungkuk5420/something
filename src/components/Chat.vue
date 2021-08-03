@@ -1,15 +1,15 @@
 <template>
-  <div class="chat">
-    <div class="user-img">
-      <img :src="user?user.avatar:''" alt />
+  <div class="chat relative-position" v-ripple>
+    <div class="chat-img">
+      <img :src="chat?chat.avatar:''" alt />
     </div>
     <div class="chatting-text">
-      <div class="user-name">
-        <b>{{user?user.name:''}}</b>
-        <div class="chatting-date">8월 12일 오후 10:10</div>
+      <div class="chat-name">
+        <b>{{chat?chat.name:''}}</b>
+        <div class="chatting-date">{{chat.time}}</div>
       </div>
-      <div class="user-conversation">
-        <div class>横幅を縮めると、余った文字が省略表示されます。</div>
+      <div class="chat-conversation">
+        <div class>{{chat.text}}</div>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
 <script>
 export default {
   name: "Chat",
-  props: ["user"],
+  props: ["chat"],
 };
 </script>
 
@@ -27,9 +27,10 @@ export default {
   display: flex;
   padding: 10px;
   border-bottom: 1px solid #d8d9d9;
-  min-height: 100px;
+  min-height: 50px;
+  cursor: pointer;
 }
-.chat .user-img {
+.chat .chat-img {
   width: 60px;
   img {
     width: 60px;
@@ -43,7 +44,7 @@ export default {
   padding-left: 20px;
   overflow: hidden;
 }
-.chat .chatting-text .user-name {
+.chat .chatting-text .chat-name {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,7 +54,7 @@ export default {
   }
 }
 
-.chat .chatting-text .user-conversation {
+.chat .chatting-text .chat-conversation {
   padding-top: 10px;
   font-size: 14px;
   display: flex;

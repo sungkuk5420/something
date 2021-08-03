@@ -10,6 +10,11 @@ const routes = [
     children: [{ path: "", component: () => import("pages/Join.vue") }]
   },
   {
+    path: "/reset-password",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/ResetPassword.vue") }]
+  },
+  {
     path: "/mainTutorial",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/MainTutorial.vue") }]

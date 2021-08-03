@@ -3,21 +3,7 @@
     <div class="main">
       <input type="text" class="inputbox" placeholder="이름" v-model="name" v-on:keyup.enter="join" />
       <input type="text" class="inputbox" placeholder="이메일" v-model="email" v-on:keyup.enter="join" />
-      <input
-        type="password"
-        class="inputbox"
-        placeholder="비밀번호"
-        v-model="password"
-        v-on:keyup.enter="join"
-      />
-      <input
-        type="password"
-        class="inputbox"
-        placeholder="비밀번호 확인"
-        v-model="password2"
-        v-on:keyup.enter="join"
-      />
-      <div class="btn1" @click="join">회원가입</div>
+      <div class="btn1" @click="join">비밀번호 재설정</div>
     </div>
   </q-page>
 </template>
@@ -52,7 +38,7 @@ export default {
       const thisObj = this;
 
 
-      thisObj.message("회원가입 완료");
+      thisObj.message("비밀번호 재설정 이메일을 전송하였습니다.");
       thisObj.$router.push(`/?email=${email}`);
       return false;
       

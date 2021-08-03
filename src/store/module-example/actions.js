@@ -27,6 +27,8 @@ export const actions = {
   [T.SET_LOGIN_USER]({ commit }, { data }) {
     console.log(`store SET_LOGIN_USER [T.SET_LOGIN_USER] data`);
     console.log(data);
+    commit(T.SET_LOGIN_USER, data);
+    return false;
     const userId = data.userId;
     if (userId) {
       const cb = (user) => {

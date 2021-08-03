@@ -1,5 +1,5 @@
 <template>
-  <div class="card" ref="card" :if="users">
+  <div class="card" ref="card" :if="users" :class="isFadeOut">
     <div class="profile">
       <div class="left">
         <img class="avatar" :src="users[0]?users[0].avatar:''" alt />
@@ -38,25 +38,48 @@
 </template>
 
 <script>
+import { Notify } from "quasar";
 export default {
   name: "Card",
-  props: ["users"],
+  props: ["users",],
   data() {
     return {
       lazy: 5,
+      isFadeOut:""
     };
   },
   watch: {
+    users(value){
+      console.log("change users !!")
+      console.log(value)
+      this.lazy = 5;
+      this.isFadeOut = "";
+    },
     lazy(value) {
+      console.log()
       if (value == 0) {
-        console.log("싫어요");
+        this.message(this.users[0].name);
       } else if (value == 10) {
-        console.log("좋아요");
+        this.message(this.users[1].name);
+      }else if (value == 5) {
+        return false;
       }
-      const thisCard = this.$refs.card;
-      thisCard.classList.add("fadeOut");
+      this.isFadeOut="fadeOut";
+      // const thisCard = this.$refs.card;
+      // thisCard.classList.add("fadeOut");
     },
   },
+  methods:{
+    message(text) {
+      Notify.create({
+        color: "white",
+        textColor: "black",
+        message: text,
+        position: "top",
+        timeout: 3000,
+      });
+    },
+  }
 };
 </script>
 <style scoped lang="scss">
