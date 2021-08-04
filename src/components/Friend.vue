@@ -48,7 +48,10 @@ export default {
   }
 }
 .user .chatting-text {
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
   flex: 1;
   padding-left: 20px;
   overflow: hidden;
