@@ -197,14 +197,17 @@ export default {
     margin-top: 8px;
   }
   &.tutorial-showed{
-
+    background: #c1aaaa;
+    img{
+      opacity: 0.7;
+    }
   }
 }
 .tutorial {
   width: 100%;
   height: calc(100% - 58px);
   z-index: 10000;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   opacity:0; 
   z-index: 0;
@@ -271,12 +274,11 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 3px 0 ;
+  padding: 12px 0 ;
   background: white;
-  height: 76px;
 }
 .q-footer img {
-  width: 52px;
+  width: 60px;
   cursor: pointer;
 }
 </style>
