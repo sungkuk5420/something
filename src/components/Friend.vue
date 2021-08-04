@@ -14,7 +14,7 @@
           <div class="user-height"></div>
         </div>
         <div class="user-info-bottom">
-          <div class="message">좋아요</div>
+          <div class="message">상대방의 선택을 기다리고 있습니다.</div>
         </div>
       </div>
     </div>
@@ -34,9 +34,9 @@ export default {
 <style lang="scss" scoped>
 .user {
   display: flex;
-  padding: 10px;
+  padding: 10px 5px;
   border-bottom: 1px solid #d8d9d9;
-  min-height: 100px;
+  min-height: 80px;
 }
 
 .user .user-img {

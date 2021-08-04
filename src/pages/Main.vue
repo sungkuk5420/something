@@ -20,6 +20,9 @@ export default {
       mainTutorialUserList: "getMainTutorialUserList",
     }),
   },
+  watch(){
+mainTutorialUserList
+  },
   mounted() {
     const thisObj = this;
     thisObj.loading = true;

@@ -54,10 +54,11 @@ export default {
       const password = this.password;
       const thisObj = this;
 
+      localStorage.removeItem("friendList");
       thisObj.$store.dispatch(T.SET_LOGIN_USER, {
-          data: {
-              userId: "tester",
-      },
+        data: {
+          userId: "tester",
+        },
       })
       thisObj.$router.push(`/main`);
       // firebase

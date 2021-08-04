@@ -43,6 +43,11 @@ const routes = [
     path: "/profile",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Profile.vue") }]
+  },
+  {
+    path: "/change-profile",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/ChangeProfile.vue") }]
   }
 ];
 

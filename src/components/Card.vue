@@ -39,6 +39,8 @@
 
 <script>
 import { Notify } from "quasar";
+import { T } from "../store/module-example/types";
+import { mapGetters } from "vuex";
 export default {
   name: "Card",
   props: ["users",],
@@ -48,6 +50,11 @@ export default {
       isFadeOut:""
     };
   },
+  computed: {
+    ...mapGetters({
+      loginUser: "getLoginUser",
+    }),
+  },
   watch: {
     users(value){
       console.log("change users !!")
@@ -56,13 +63,33 @@ export default {
       this.isFadeOut = "";
     },
     lazy(value) {
-      console.log()
+      console.log(this.loginUser)
+      let friendList = localStorage.getItem("friendList");
+      if(friendList){
+        friendList = JSON.parse(friendList)
+      }
+      let newFriendList = [];
+
       if (value == 0) {
+        if(this.loginUser){
+          newFriendList.push(this.users[0])
+        }
         this.message(this.users[0].name);
       } else if (value == 10) {
+        if(this.loginUser){
+          newFriendList.push(this.users[1])
+        }
         this.message(this.users[1].name);
       }else if (value == 5) {
         return false;
+      }
+      if(this.loginUser){
+        if(friendList){
+          console.log(friendList)
+          console.log(newFriendList)
+          newFriendList = [...friendList,...newFriendList];
+        }
+        localStorage.setItem("friendList",JSON.stringify(newFriendList));
       }
       this.isFadeOut="fadeOut";
       // const thisCard = this.$refs.card;

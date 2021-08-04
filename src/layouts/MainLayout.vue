@@ -45,10 +45,10 @@
           <img
             src="statics/icons/btn_inu_off.png"
             class="off"
-            v-show="activeTabNumber!=4"
-            @click="activeTabNumber=4"
+            v-show="activeTabNumber!=1"
+            @click="activeTabNumber=1"
           />
-          <img src="statics/icons/btn_inu_on.png" class="on" v-show="activeTabNumber==4" />
+          <img src="statics/icons/btn_inu_on.png" class="on" v-show="activeTabNumber==1" />
         </q-route-tab>
         <q-route-tab to="/chats">
           <img

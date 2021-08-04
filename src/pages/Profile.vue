@@ -4,13 +4,13 @@
       <div class="card">
         <div class="profile">
           <div class="left">
-            <img src="statics/image/woman-1.jpg" alt />
+            <img src="statics/image/man-5.jpg" alt />
           </div>
           <div class="right">
-            <div class="name">김형수(35)</div>
+            <div class="name">홍길동 (29)</div>
             <div class="spec">
-              <span>K.WILL</span>
-              <span>알라뷰 내 남자</span>
+              <span>안녕하세요 </span>
+              <span>좋은 인연 만나고 싶습니다.</span>
             </div>
           </div>
         </div>
@@ -18,20 +18,31 @@
       <div class="Badge">
         <div class="title">사진앨범</div>
         <div class="image-box">
-          <img src="statics/image/woman-3.jpg" alt />
-          <img src="statics/image/woman-3.jpg" alt />
-          <img src="statics/image/woman-3.jpg" alt />
-          <img src="statics/image/woman-3.jpg" alt />
+          <img src="statics/image/man-1.jpg" alt />
+          <img src="statics/image/man-2.jpg" alt />
+          <img src="statics/image/man-3.jpg" alt />
+          <img src="statics/image/man-4.jpg" alt />
           <img src="statics/icons/btn_view.png" alt />
         </div>
       </div>
       <div class="Badge">
         <div class="title">뱃지</div>
         <div class="image-box">
-          <img src="statics/image/woman-5.jpg" alt />
-          <img src="statics/image/woman-5.jpg" alt />
-          <img src="statics/image/woman-5.jpg" alt />
-          <img src="statics/image/woman-5.jpg" alt />
+          <div class="icon-wrapper">
+            <q-icon name="favorite" />
+          </div>
+          <div class="icon-wrapper">
+            <q-icon name="rowing" />
+          </div>
+          <div class="icon-wrapper">
+            <q-icon name="sports_cricket" />
+          </div>
+          <div class="icon-wrapper">
+            <q-icon name="palette" />
+          </div>
+          <div class="icon-wrapper">
+            <q-icon name="flight" />
+          </div>
           <img src="statics/icons/btn_view.png" alt />
         </div>
       </div>
@@ -82,6 +93,7 @@ export default {
           }
           .spec {
             display: flex;
+            flex-direction: column;
             font-size: 15px;
           }
         }
@@ -144,6 +156,20 @@ export default {
       font-size: 16px;
       padding-left: 10px;
     }
+  }
+
+  .icon-wrapper{
+    font-size: 24px;
+    background: #f7d1c5;
+    border-radius: 50%;
+    min-width: 35px;
+    width: 35px;
+    height:35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex:0;
+    color: #5d5d5d;
   }
 }
 </style>

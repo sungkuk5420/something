@@ -8,6 +8,9 @@ export const getters = {
     getChatList(state) {
         return state.chatList;
     },
+    getFriendList(state) {
+        return state.friendList;
+    },
     getLoginUser(state) {
         return state.loginUser;
     }
