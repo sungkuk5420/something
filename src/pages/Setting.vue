@@ -7,10 +7,12 @@
           <span>내 정보</span>
         </div>
       </router-link>
-      <div class="row menu">
-        <img src="statics/icons/btn_pwchange.png" class="icon" alt srcset />
-        <span>프로필 변경</span>
-      </div>
+      <router-link to="change-profile">
+        <div class="row menu">
+          <img src="statics/icons/btn_pwchange.png" class="icon" alt srcset />
+          <span>프로필 변경</span>
+        </div>
+      </router-link>
       <div class="row menu" @click="logout">
         <img src="statics/icons/btn_logout.png" class="icon" alt srcset />
         <span>로그아웃</span>
@@ -65,6 +67,9 @@ export default {
 .q-page.setting-page {
   .main {
     padding-top: 20px;
+    a:nth-child(even) .menu{
+      background-color: #f7d1c5;
+    }
     .menu {
       position: relative;
       display: flex;
@@ -74,9 +79,6 @@ export default {
       background-color: #f7f8f8;
       margin-bottom: 10px;
       border: 1px solid #ddd;
-      &:nth-child(even) {
-        background-color: #f7d1c5;
-      }
       &:hover {
         cursor: pointer;
       }
