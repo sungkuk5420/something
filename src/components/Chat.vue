@@ -1,5 +1,5 @@
 <template>
-  <div class="chat relative-position" v-ripple>
+  <div class="chat relative-position" v-ripple @click="movePage(`/chat-room?id=${chat.index}`)">
     <div class="chat-img">
       <img :src="chat?chat.avatar:''" alt />
     </div>
@@ -23,6 +23,11 @@
 export default {
   name: "Chat",
   props: ["chat"],
+  methods:{
+    movePage(path){
+      this.$router.push(path)
+    }
+  }
 };
 </script>
 

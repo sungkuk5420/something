@@ -44,7 +44,7 @@ export default {
     //   this.email = emailStringIntoPath.replace("%40", "@");
     // }
     if (this.loginUser) {
-      this.$router.push(`/main`);
+      this.$router.push(`/mainTutorial`);
     }
   },
   computed: {},
@@ -60,7 +60,7 @@ export default {
           userId: "tester",
         },
       })
-      thisObj.$router.push(`/main`);
+      thisObj.$router.push(`/mainTutorial`);
       // firebase
       //   .auth()
       //   .signInWithEmailAndPassword(email, password)

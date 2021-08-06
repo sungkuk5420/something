@@ -20,11 +20,6 @@ const routes = [
     children: [{ path: "", component: () => import("pages/MainTutorial.vue") }]
   },
   {
-    path: "/main",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/Main.vue") }]
-  },
-  {
     path: "/chats",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Chats.vue") }]
@@ -48,6 +43,11 @@ const routes = [
     path: "/change-profile",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/ChangeProfile.vue") }]
+  },
+  {
+    path: "/chat-room",
+    component: () => import("layouts/ChatLayout.vue"),
+    children: [{ path: "", component: () => import("pages/ChatRoom.vue") }]
   }
 ];
 

@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header height-hint="98" :class="tutorialVisiable?'tutorial-showed':''">
+    <q-header height-hint="98" :class="tutorialVisiable?'tutorial-showed main-header':'main-header'" >
       <img src="statics/icons/logo_something_main.png" alt />
     </q-header>
     <Modal v-show="sexModalVisiable" />
@@ -14,7 +14,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer reveal class="text-white" v-if="!loginUser">
+    <q-footer reveal class="main-footer text-white" v-if="!loginUser">
       <q-tabs align="left">
         <q-route-tab to="/mainTutorial">
           <img
@@ -39,7 +39,7 @@
         </q-route-tab>
       </q-tabs>
     </q-footer>
-    <q-footer reveal class="text-white" v-if="loginUser">
+    <q-footer reveal class="main-footer text-white" v-if="loginUser">
       <q-tabs align="left">
         <q-route-tab to="/mainTutorial">
           <img
@@ -138,32 +138,59 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$route.path.indexOf('chat-room')==-1)
+    // this.$route.currentRouter.path.indexOf('chat-room')==-1
     const thisObj = this;
-    firebase.auth().onAuthStateChanged(function (user) {
-      console.log("onAuthStateChanged");
-      if (user) {
-        console.log(user.uid);
-        console.log(thisObj.loginUser);
+    // firebase.auth().onAuthStateChanged(function (user) {
+    //   console.log("onAuthStateChanged");
+    //   if (user) {
+    //     console.log(user.uid);
+    //     console.log(thisObj.loginUser);
 
-        // // User is signed in.
-        if (!thisObj.loginUser) {
-          thisObj.$store
-            .dispatch(T.SET_LOGIN_USER, {
-              data: {
-                userId: user.uid,
-              },
-            })
-            .then(() => {});
-        }
-        const pathName = thisObj.$route.fullPath;
-        if (pathName == "/") {
-          thisObj.$router.push(`/main`);
-        }
-      } else {
-        // User is signed out.
-        thisObj.$router.push("/");
-      }
-    });
+    //     // // User is signed in.
+    //     if (!thisObj.loginUser) {
+    //       thisObj.$store
+    //         .dispatch(T.SET_LOGIN_USER, {
+    //           data: {
+    //             userId: user.uid,
+    //           },
+    //         })
+    //         .then(() => {});
+    //     }
+    //     const pathName = thisObj.$route.fullPath;
+    //     if (pathName == "/") {
+    //       thisObj.$router.push(`/main`);
+    //     }
+    //   } else {
+    //     // User is signed out.
+    //     thisObj.$router.push("/");
+    //   }
+    // });
+
+    const pathName = this.$route.fullPath;
+    switch (pathName) {
+      case "/mainTutorial":
+        this.activeTabNumber = 1;
+        break;
+      case "/":
+        this.activeTabNumber = 3;
+        break;
+      case "/main":
+        this.activeTabNumber = 4;
+        break;
+      case "/chats":
+        this.activeTabNumber = 5;
+        break;
+      case "/friends":
+        this.activeTabNumber = 6;
+        break;
+      case "/setting":
+        this.activeTabNumber = 7;
+        break;
+      case "/profile":
+        this.activeTabNumber = 7;
+        break;
+    }
   },
   methods: {
     showTutorial() {
@@ -187,14 +214,17 @@ export default {
 
 <style lang="scss" >
 .q-header {
-  display: flex;
-  background-color: #f7d1c5;
-  justify-content: center;
-  flex: 0;
-  height: 58px;
-  img {
-    width: 150px;
-    margin-top: 8px;
+  &.main-header{
+    display: flex;
+    background-color: #f7d1c5;
+    justify-content: center;
+    flex: 0;
+    height: 58px;
+
+    img {
+      width: 150px;
+      margin-top: 8px;
+    }
   }
   &.tutorial-showed{
     background: #c1aaaa;
@@ -271,14 +301,17 @@ export default {
 }
 
 .q-footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 12px 0 ;
-  background: white;
-}
-.q-footer img {
-  width: 60px;
-  cursor: pointer;
+  &.main-footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 0 ;
+    background: white;
+
+    img {
+      width: 60px;
+      cursor: pointer;
+    }
+  }
 }
 </style>
