@@ -81,7 +81,7 @@ export default {
     display: flex;
     background-color: #f7d1c5;
     justify-content: center;
-    padding: 0 10px;
+    padding: 0 5px;
     height: 50px;
     .chat-header__left{
       flex: 1;
@@ -89,7 +89,8 @@ export default {
       align-items: center;
       justify-content: flex-start;
       img{
-        width: 60px;
+        width: 55px;
+        cursor: pointer;
       }
     }
     .chat-header__center{
@@ -107,7 +108,8 @@ export default {
       display: flex;
       align-items: center;
       img{
-        width: 60px;
+        width: 55px;
+        cursor: pointer;
       }
     }
   }
@@ -129,7 +131,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      
+      padding: 0 3px;
       img{
         width: 50px;
       }
