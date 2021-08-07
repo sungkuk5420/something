@@ -1,64 +1,34 @@
-# something
-dating app
+# something-old
 
-## Install the dependencies
-```bash
+대학교 졸업작품으로 만든 학교내 소개팅 어플입니다.
+
+## Demo / 데모
+
+[라이브 데모 보기](https://something-old.netlify.app/#/)
+
+## Getting Started / 어떻게 시작하나요?
+
+### Installing / 설치
+
+아래 사항들로 현 프로젝트에 관한 모듈들을 설치할 수 있습니다.
+
+```
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
+### Run / 실행
+
+```
 quasar dev
 ```
 
+## License / 라이센스
 
-### Build the app for production
-```bash
-quasar build
-```
+This project is licensed under the MIT License - see the [LICENSE.md](https://gist.github.com/PurpleBooth/LICENSE.md) file for details
+이 프로젝트는 MIT 라이센스로 라이센스가 부여되어 있습니다. 자세한 내용은 LICENSE.md 파일을 참고하세요.
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+## Acknowledgments / 감사의 말
 
-### quasar
-```
-$ yarn global add @quasar/cli
-# or
-$ npm install -g @quasar/cli
-```
-
-
-
-### action call
-
-```
-  const thisObj = this;
-  const successCb = result => {
-    thisObj.sendSuccessMessage("완료");
-    thisObj.loading = false;
-  };
-  const errorCb = () => {
-    thisObj.sendErrorMessage("실패");
-    thisObj.loading = false;
-  };
-  thisObj.loading = true;
-  thisObj.$store.dispatch(T.ACTION_NAME, {
-    data: {
-    },
-    successCb,
-    errorCb
-  });
-```
-
-### firebase
-```
-개발용 로컬 웹 서버 실행
-npm install --save firebase
-npm install -g firebase-tools
-
-firebase 호스팅을 사용하여 웹 앱 호스팅
-firebase init
-
-firebase deploy
-```
-
+- Hat tip to anyone whose code was used / 코드를 사용한 모든 사용자들에게 팁
+- Inspiration / 영감
+- etc / 기타
